@@ -27,8 +27,11 @@ router.get('/', function (req,res){
 
 router.post('/store',[
     body('nama').notEmpty(),
-    body('isi').notEmpty(),
-   
+    body('gender').notEmpty(),
+    body('sword').notEmpty(),
+    body('village').notEmpty(),
+    body('description').notEmpty(),
+
 ],(req,res)=> {
     const errors = validationResult(req)
     if(!errors.isEmpty()){
@@ -40,7 +43,10 @@ router.post('/store',[
     //definisi from data
     let formData ={
         nama: req.body.nama,
-        isi: req.body.isi,
+        gender: req.body.gender,
+        sword: req.body.sword,
+        village: req.body.village,
+        description: req.body.description,
     }
 
     //memasukan query
@@ -94,7 +100,11 @@ router.get('/:id', function(req,res){
 
 router.patch('/update/:id',[
     body('nama').notEmpty(),
-    body('isi').notEmpty(),
+    body('gender').notEmpty(),
+    body('sword').notEmpty(),
+    body('village').notEmpty(),
+    body('description').notEmpty(),
+
 ],(req,res)=>{
     const errros = validationResult(req)
     if(!errros.isEmpty()){
@@ -107,7 +117,10 @@ router.patch('/update/:id',[
 
     let  formData={
         nama: req.body.nama,
-        isi: req.body.isi,
+        gender: req.body.gender,
+        sword: req.body.sword,
+        village: req.body.village,
+        description: req.body.description,
     }
 
     //update query
